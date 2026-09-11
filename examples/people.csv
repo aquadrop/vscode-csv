@@ -1,0 +1,26 @@
+Name,Department,City,Status,Revenue,Notes
+Alice,Engineering,Seattle,Active,12500,"APIs, tools"
+Bob,Sales,Berlin,Active,9800,"Quoted ""value"""
+Carla,Engineering,Berlin,Active,15400,"First line
+Second line"
+Dan,Support,Berlin,Inactive,7200,
+Eve,Support,Tokyo,Active,11600,
+Finn,Sales,Seattle,Inactive,8100,
+Grace,Engineering,Seattle,Inactive,13200,
+Hugo,Support,,Active,6400,Blank city
+Iris,Engineering,Tokyo,Active,14300,
+Jules,Sales,London,Active,10200,
+Kai,Support,London,Inactive,7800,
+Lee,Engineering,Berlin,Active,16700,
+Morgan,Sales,Tokyo,Active,12300,
+Noel,Support,Seattle,Active,9100,
+Oakley,Engineering,London,Inactive,14900,
+Parker,Sales,Berlin,Inactive,8800,
+Quinn,Support,Tokyo,Active,10600,
+Riley,Engineering,Seattle,Active,17300,
+Sage,Sales,London,Inactive,7600,
+Taylor,Support,Berlin,Active,9900,
+Uma,Engineering,Tokyo,Inactive,15100,
+Val,Sales,Seattle,Active,11400,
+Winter,Support,London,Active,8500,
+Yael,Engineering,Berlin,Active,18200,

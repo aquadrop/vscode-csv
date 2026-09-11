@@ -1,0 +1,146 @@
+{
+  "name": "csv-filter-table",
+  "displayName": "CSV Filter Table",
+  "description": "Explore CSV and TSV files with Excel-style column filters, sticky headers, colored columns, and live record counts.",
+  "version": "0.1.0",
+  "publisher": "local-tools",
+  "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aquadrop/vscode-csv.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aquadrop/vscode-csv/issues"
+  },
+  "homepage": "https://github.com/aquadrop/vscode-csv#readme",
+  "engines": {
+    "vscode": "^1.85.0",
+    "node": ">=20"
+  },
+  "categories": [
+    "Visualization",
+    "Other"
+  ],
+  "keywords": [
+    "csv",
+    "tsv",
+    "excel",
+    "filter",
+    "table"
+  ],
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onCustomEditor:csvFilter.table",
+    "onCommand:csvFilter.openTable"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    },
+    "virtualWorkspaces": true
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "csvFilter.openTable",
+        "title": "CSV: Open in Table View",
+        "icon": "$(table)"
+      }
+    ],
+    "customEditors": [
+      {
+        "viewType": "csvFilter.table",
+        "displayName": "CSV Filter Table",
+        "selector": [
+          {
+            "filenamePattern": "*.csv"
+          },
+          {
+            "filenamePattern": "*.CSV"
+          },
+          {
+            "filenamePattern": "*.tsv"
+          },
+          {
+            "filenamePattern": "*.TSV"
+          }
+        ],
+        "priority": "default"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "csvFilter.openTable",
+          "when": "resourceExtname =~ /^\\.(csv|tsv)$/i",
+          "group": "navigation@20"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "csvFilter.openTable",
+          "when": "resourceExtname =~ /^\\.(csv|tsv)$/i && activeCustomEditorId != csvFilter.table",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "CSV Filter Table",
+      "properties": {
+        "csvFilter.delimiter": {
+          "type": "string",
+          "enum": [
+            "auto",
+            ",",
+            ";",
+            "\t",
+            "|"
+          ],
+          "enumDescriptions": [
+            "Detect the delimiter from the file.",
+            "Comma",
+            "Semicolon",
+            "Tab",
+            "Pipe"
+          ],
+          "default": "auto",
+          "scope": "resource",
+          "description": "Initial delimiter for table views. Override it in the table toolbar."
+        },
+        "csvFilter.hasHeader": {
+          "type": "boolean",
+          "default": true,
+          "scope": "resource",
+          "description": "Treat the first record as column headers. Override it in the table toolbar."
+        },
+        "csvFilter.maxFileSizeMB": {
+          "type": "number",
+          "default": 20,
+          "minimum": 1,
+          "maximum": 100,
+          "scope": "resource",
+          "description": "Maximum decoded CSV size in MiB. Larger files must be opened as text or this limit increased. Parsing holds the file in memory."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "check": "tsc --noEmit",
+    "compile": "npm run check && node esbuild.mjs",
+    "watch": "node esbuild.mjs --watch",
+    "test": "tsx --test test/*.test.ts",
+    "test:ui": "npm run compile && playwright test",
+    "vscode:prepublish": "npm run compile",
+    "package": "vsce package --no-dependencies"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "@types/node": "^20.19.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.6.0",
+    "esbuild": "^0.25.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.3"
+  }
+}
