@@ -9,6 +9,8 @@ test('uses only local assets with a nonce-restricted script policy', () => {
     cspSource: "'self'",
     nonce: 'testnonce',
   });
+  assert.match(html, /<title>CSVScope<\/title>/);
+  assert.match(html, /<h1 id="file-name">CSVScope<\/h1>/);
   assert.match(html, /default-src 'none'/);
   assert.match(html, /base-uri 'none'/);
   assert.match(html, /form-action 'none'/);

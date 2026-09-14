@@ -1,8 +1,8 @@
 {
   "name": "csv-filter-table",
-  "displayName": "CSV Filter Table",
+  "displayName": "CSVScope",
   "description": "Explore CSV and TSV files with Excel-style column filters, sticky headers, colored columns, and live record counts.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "local-tools",
   "private": true,
   "license": "MIT",
@@ -23,6 +23,7 @@
     "Other"
   ],
   "keywords": [
+    "csvscope",
     "csv",
     "tsv",
     "excel",
@@ -44,14 +45,14 @@
     "commands": [
       {
         "command": "csvFilter.openTable",
-        "title": "CSV: Open in Table View",
+        "title": "CSVScope: Open in Table View",
         "icon": "$(table)"
       }
     ],
     "customEditors": [
       {
         "viewType": "csvFilter.table",
-        "displayName": "CSV Filter Table",
+        "displayName": "CSVScope",
         "selector": [
           {
             "filenamePattern": "*.csv"
@@ -86,7 +87,7 @@
       ]
     },
     "configuration": {
-      "title": "CSV Filter Table",
+      "title": "CSVScope",
       "properties": {
         "csvFilter.delimiter": {
           "type": "string",

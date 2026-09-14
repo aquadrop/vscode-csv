@@ -176,7 +176,7 @@ class CsvTableProvider implements vscode.CustomTextEditorProvider {
 }
 
 export function activate(context: vscode.ExtensionContext): void {
-  const output = vscode.window.createOutputChannel('CSV Filter Table');
+  const output = vscode.window.createOutputChannel('CSVScope');
   context.subscriptions.push(
     output,
     vscode.window.registerCustomEditorProvider(

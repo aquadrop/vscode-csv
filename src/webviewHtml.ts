@@ -19,14 +19,14 @@ export function createWebviewHtml(assets: WebviewAssets): string {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Security-Policy" content="${attribute(policy)}">
   <link rel="stylesheet" href="${attribute(assets.styleUri)}">
-  <title>CSV Filter Table</title>
+  <title>CSVScope</title>
 </head>
 <body>
   <header class="toolbar">
     <div class="document-heading">
       <span class="table-mark" aria-hidden="true"></span>
       <div class="document-title">
-        <h1 id="file-name">CSV Filter Table</h1>
+        <h1 id="file-name">CSVScope</h1>
         <p id="document-meta">Read-only table view</p>
       </div>
     </div>

@@ -1,4 +1,4 @@
-# CSV Filter Table
+# CSVScope
 
 A VS Code extension for browsing CSV and TSV files with Excel-style filtering.
 
@@ -20,20 +20,22 @@ code .
 
 If your organization uses an authenticated npm registry, authenticate with its approved credential provider before installing. Local registry configuration in `.npmrc` is excluded from Git and extension packages.
 
-Press **F5** and choose **Run CSV Filter Table**. In the Extension Development Host, open `people.csv` from the included examples folder.
+Press **F5** and choose **Run CSVScope**. In the Extension Development Host, open `people.csv` from the included examples folder.
 
 To install into your normal VS Code window:
 
 ```powershell
 npm run package
-code --install-extension .\csv-filter-table-0.1.0.vsix
+code --install-extension .\csv-filter-table-0.1.1.vsix
 ```
 
 Alternatively, use **Extensions: Install from VSIX...** from the Command Palette. The package command builds the extension but does not publish it. Replace the `local-tools` publisher in `package.json` with your own Marketplace publisher before publishing.
 
+CSVScope keeps the `csv-filter-table` package name and existing `csvFilter.*` command, editor, and setting identifiers for compatibility with existing installations.
+
 ## Use the table
 
-Open a `.csv` or `.tsv` file. The extension contributes a default table editor; if another extension or an existing editor association takes precedence, use **Reopen Editor With... > CSV Filter Table** or **CSV: Open in Table View**.
+Open a `.csv` or `.tsv` file. The extension contributes a default table editor; if another extension or an existing editor association takes precedence, use **Reopen Editor With... > CSVScope** or **CSVScope: Open in Table View**.
 
 1. Click a column's filter button.
 2. Uncheck **Select all values**, check the values you want, then click **Apply**.
@@ -84,6 +86,6 @@ npm run test:ui
 
 This optional check expects more than 100 records and two filterable columns, compares combined filters against independently computed row indices, checks scrolling and header position, and verifies the source file remains unchanged. Screenshots, video, and tracing are disabled for this local-file check.
 
-GitHub Actions runs the same checks and uploads a VSIX build artifact. The lockfile pins versions and integrity hashes without private registry URLs; when updating dependencies through a private feed, use `npm install --omit-lockfile-registry-resolved` to keep it portable.
+GitHub Actions runs the same checks and uploads a VSIX build artifact named **CSVScope**. The lockfile pins versions and integrity hashes without private registry URLs; when updating dependencies through a private feed, use `npm install --omit-lockfile-registry-resolved` to keep it portable.
 
 The extension host is in `src\extension.ts`; CSV parsing and filter logic are in `src\csv.ts`; the table interface is in `src\webview\index.ts` and `media\webview.css`.

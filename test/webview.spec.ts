@@ -91,6 +91,8 @@ async function mount(page: Page, text = csv(), saved: ViewState | null = null): 
   }, saved);
   await page.goto('https://csv.test/');
   await expect.poll(() => page.evaluate(() => window.__csvMessages.some(message => message.type === 'ready'))).toBe(true);
+  await expect(page).toHaveTitle('CSVScope');
+  await expect(page.locator('#file-name')).toHaveText('CSVScope');
   await sendFile(page, text, saved?.options);
   expect(errors).toEqual([]);
 }
